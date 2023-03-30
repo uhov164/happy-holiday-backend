@@ -20,6 +20,6 @@ public class UserDtoFactory {
 		var age = userEntity.getAge();
 		var listOfOrders = userEntity.getListOfOrders();
 
-		return new UserDto(phoneNumber, fio, age listOfOrders);
+		return new UserDto(phoneNumber, fio, age, listOfOrders);//я тут рискну поставить запятую между age и listOfOrders
 	}
 }

@@ -1,6 +1,6 @@
 package happy.holiday.server.entity;
 
-import java.util.List
+import java.util.List; // он ругался и я поставил ";"
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
