@@ -11,5 +11,4 @@ import java.util.Optional;
 @Repository
 public interface SellerRepository extends JpaRepository<SellerEntity, Integer> {
     Optional<SellerEntity> findTopByPhoneNumberAndPassword(@NonNull String phoneNumber, @NonNull String password);
-    // у него же есть этот метод или что это findTopByPhoneNumberAndPassword()?
 }

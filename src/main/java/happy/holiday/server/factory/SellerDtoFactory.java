@@ -3,10 +3,12 @@ package happy.holiday.server.factory;
 import happy.holiday.server.dto.SellerDto;
 import happy.holiday.server.entity.SellerEntity;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
+            //Transactional я добавил от спринга а не от jakarta.transaction.Transactional;
 
 @Component // такой же вопрос: зачем тут компонент и что он делает?
 public class SellerDtoFactory {
-
+    @Transactional
     public SellerDto createSellerDto(SellerEntity sellerEntity){
 
         var phoneNumber = sellerEntity.getPhoneNumber(); // почему оно красное? точнее я догадываюсь - такого метода нет, но тогда вопрос на 2 коммента ниже
