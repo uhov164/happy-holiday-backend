@@ -48,7 +48,8 @@ class SellerController { // почему не пишем public?
                                            @RequestParam String password) throws ChangeSetPersister.NotFoundException {
 
         //я попробовал if))) хотя пока я искал как сделать это через if понял как работает твой замудреный orElseThrow()
-        // а еще понял что мои пыпытки выглядят жалко, относительно твоей 1-ой строчки [eqyz
+        // а еще понял что мои пыпытки выглядят жалко, относительно твоей 1-ой строчки
+
         //*
         var sellerEntityOptional = sellerRepository
                 .findTopByPhoneNumberAndPassword(phone_number, password);
