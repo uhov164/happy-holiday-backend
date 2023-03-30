@@ -29,7 +29,7 @@ public class SellerEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	private String phone_number;
+	private String phoneNumber;
 	private String password;
 	private String fio;
 	private Integer age;
