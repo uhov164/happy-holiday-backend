@@ -5,6 +5,7 @@ import happy.holiday.server.entity.SellerEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
             //Transactional я добавил от спринга а не от jakarta.transaction.Transactional;
+// проверяю гит
 
 @Component // такой же вопрос: зачем тут компонент и что он делает?
 public class SellerDtoFactory {
