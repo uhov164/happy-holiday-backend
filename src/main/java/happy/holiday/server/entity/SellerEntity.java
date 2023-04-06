@@ -21,7 +21,7 @@ import jakarta.persistence.OneToMany;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table(name = "seller")
+@Table(name = "sellers")
 public class SellerEntity {
 
 
@@ -34,15 +34,20 @@ public class SellerEntity {
 	private String fio;
 	private Integer age;
 
-	@OneToMany
-	@JoinColumn(name = "item_id")
-	private List<ItemEntity> listOfItems;
 
-	@OneToMany
-	@JoinColumn(name = "item_id")
-	private List<OrderEntity> listOfOrders;
+	/* 
+	 *  Пока что также вынес в комменты. 
+	 *  Нужно продумать, как архитектурно это все будет. Для теста не нужно
+	 */
+	// @OneToMany
+	// @JoinColumn(name = "item_id")
+	// private List<ItemEntity> listOfItems;
 
-	@OneToMany
-	@JoinColumn(name = "item_id")
-	private List<ItemEntity> history;
+	// @OneToMany
+	// @JoinColumn(name = "item_id")
+	// private List<OrderEntity> listOfOrders;
+
+	// @OneToMany
+	// @JoinColumn(name = "item_id")
+	// private List<ItemEntity> history;
 }

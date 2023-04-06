@@ -18,16 +18,16 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table(name = "order")
+@Table(name = "orders")
 public class OrderEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	private UserEntity user;
-	private SellerEntity seller;
-	private ItemEntity item;
+	// private UserEntity user;
+	// private SellerEntity seller;
+	// private ItemEntity item;
 
 	private Date date;
 }

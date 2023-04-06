@@ -10,4 +10,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserRepository extends JpaRepository<UserEntity, Integer> {
 	Optional<UserEntity> findTopByPhoneNumberAndPassword(@NonNull String phoneNumber, @NonNull String password);
+	Optional<UserEntity> findTopByPhoneNumber(@NonNull String phoneNumber);
 }

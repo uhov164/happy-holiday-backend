@@ -2,16 +2,13 @@ package happy.holiday.server.dto;
 
 import java.util.List;
 import lombok.Data;
-import lombok.AllArgsConstructor;	// чета мне подскзывает что это тут тоже надо,
-									// хотя у меня вопрос - что оно делает (конкретно)
+import lombok.AllArgsConstructor;	
+									
 
 @Data
-@AllArgsConstructor					//если оно не надо - то уберу
+@AllArgsConstructor					
 public class SellerDto {
-	private String phone_number;
+	private String phoneNumber;
 	private String fio;
 	private int age;
-
-	private List<ItemDto> items;
-	private List<OrderDto> orderHistory;
 }
