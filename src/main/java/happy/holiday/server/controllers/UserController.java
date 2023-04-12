@@ -1,8 +1,10 @@
 package happy.holiday.server.controllers;
 
 import happy.holiday.server.dto.UserDto;
+import happy.holiday.server.entity.SellerEntity;
 import happy.holiday.server.entity.UserEntity;
 import happy.holiday.server.factory.UserDtoFactory;
+import happy.holiday.server.repository.SellerRepository;
 import happy.holiday.server.repository.UserRepository;
 import happy.holiday.server.exception.NotFoundException;
 import happy.holiday.server.exception.IllegalArgumentException;
@@ -17,6 +19,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.HttpStatus;
 
+import java.util.List;
+
 
 @RestController
 @RequiredArgsConstructor
@@ -24,6 +28,8 @@ class UserController {
 
 	private final UserRepository userRepository;
 	private final UserDtoFactory userDtoFactory;
+
+	private final SellerRepository sellerRepository;
 
 	public static final String AUTHORIZE    = "api/users/authorize";
 	public static final String REGISTRATION = "api/users/registration";
@@ -77,5 +83,40 @@ class UserController {
 			
 		return ResponseEntity.ok("OK");
 	}
+
+	/*
+	TODO реализовать функцию(метод) в контроллере
+	который получает запрос(любой)
+	а возвращает первые 5 строчек с таблицы селлерс(название услуги и ее цена)
+	отправляет их в формате json - строчки на GUI
+	 */
+	//*
+
+	@Transactional
+	public ResponseEntity<List<SellerEntity>> GetFiveTop(){
+
+		var sellerEntities = sellerRepository.findAll();
+		var resList = sellerEntities.subList(0, 5);
+
+		return ResponseEntity.ok(resList);
+	}
+
+	//второй вариант, с исключением и через try
+	// TODO проверить функцию вывода списка продавцов
+
+	/*
+	@Transactional
+	public ResponseEntity<List<SellerEntity>> GetFiveTopTry() throws NotFoundException{
+
+		try {
+			var sellerEntities = sellerRepository.findAll();
+			var resList = sellerEntities.subList(0, 5);
+
+			return ResponseEntity.ok(resList);
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+	//*/
 }
 
