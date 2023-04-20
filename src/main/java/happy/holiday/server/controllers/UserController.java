@@ -33,6 +33,7 @@ class UserController {
 
 	public static final String AUTHORIZE    = "api/users/authorize";
 	public static final String REGISTRATION = "api/users/registration";
+	public static final String SEARCH = "api/users/search";
 
 	@Transactional
 	@GetMapping(AUTHORIZE)
@@ -89,32 +90,36 @@ class UserController {
 	который получает запрос(любой)
 	а возвращает первые 5 строчек с таблицы селлерс(название услуги и ее цена)
 	отправляет их в формате json - строчки на GUI
+
+
 	 */
-	//*
-
-	@Transactional
-	public ResponseEntity<List<SellerEntity>> GetFiveTop(){
-
-		var sellerEntities = sellerRepository.findAll();
-		var resList = sellerEntities.subList(0, 5);
-
-		return ResponseEntity.ok(resList);
-	}
-
-	//второй вариант, с исключением и через try
-	// TODO проверить функцию вывода списка продавцов
 
 	/*
+
 	@Transactional
-	public ResponseEntity<List<SellerEntity>> GetFiveTopTry() throws NotFoundException{
+	@GetMapping(SEARCH)
+	public ResponseEntity<String> GetFiveTop()  throws NotFoundException {
+
+		var sellerEntities = sellerRepository
+				.findAll()
+				.subList(0, 5);
+
+		return ResponseEntity.ok(sellerEntities.toString());
+	}
+	//*/
+	//второй вариант, через try
+	// TODO проверить функцию вывода списка продавцов
+
+	//*
+	@Transactional
+	public ResponseEntity<String> GetFiveTop() throws NotFoundException{
 
 		try {
-			var sellerEntities = sellerRepository.findAll();
-			var resList = sellerEntities.subList(0, 5);
+			var sellerEntities = sellerRepository.findAll().subList(0, 5);
 
-			return ResponseEntity.ok(resList);
+			return ResponseEntity.ok(sellerEntities.toString());
 		} catch (Exception e) {
-			throw new RuntimeException(e);
+			throw new NotFoundException("No sellers");
 		}
 	}
 	//*/
