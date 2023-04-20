@@ -112,6 +112,7 @@ class UserController {
 
 	//*
 	@Transactional
+	@GetMapping(SEARCH)
 	public ResponseEntity<String> GetFiveTop() throws NotFoundException{
 
 		try {
